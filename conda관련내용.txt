@@ -2,3 +2,8 @@ conda 생성명령어
 
 conda create -n 가상환경이름 python=3.7
 
+conda activate 가상환경이름
+conda deactivate 가상환경이름
+
+conda env remove -n 가상환경이름
+conda env list 
