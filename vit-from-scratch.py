@@ -1,3 +1,4 @@
+# 원 소스는 https://github.com/jankrepl/mildlyoverfitted/blob/master/github_adventures/vision_transformer/custom.py 여기에서..
 import torch
 import torch.nn as nn 
 
