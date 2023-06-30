@@ -1,0 +1,31 @@
+
+특정경로를 옮기고 다시 돌아오는 코드 작성 법..
+
+1) 아래와 같이 함수를 작성하고,
+@contextlib.contextmanager
+def in_model_path():    
+    import pix2tex
+    model_path = os.path.join(os.path.dirname(pix2tex.__file__), 'model')    
+    saved = os.getcwd()
+    os.chdir(model_path)
+    try:
+        yield
+    finally:
+        os.chdir(saved)
+
+
+2) 위의 함수를 사용한다.
+def main(arguments):
+    with in_model_path():
+      parsed_args.config = os.path.realpath('settings/debug.yaml')
+or
+def load():
+    with in_model_path():
+      tempf = os.path.join("..", filename)
+      if os.path.exists( tempf ):
+        filename = os.path.realpath(tempf)
+
+def 또다른예제():
+  with in_model_path():
+    args.tokenizer = os.path.realpath(os.path.join('dataset', 'tokenizer.json'))
+
